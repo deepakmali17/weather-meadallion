@@ -1,0 +1,33 @@
+{
+	"name": "adls_json_config_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "config_file.json",
+				"folderPath": "config",
+				"fileSystem": "weather"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"city": {
+					"type": "string"
+				},
+				"latitude": {
+					"type": "string"
+				},
+				"longitude": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"name": "https_json_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpServer_LS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"latitude": {
+				"type": "string"
+			},
+			"longitude": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "v1/forecast?latitude=@{dataset().latitude}&longitude=@{dataset().longitude}&hourly=temperature_2m&timezone=Europe%2FBerlin&past_days=3\n\n",
+					"type": "Expression"
+				}
+			}
+		},
+		"schema": {}
+	}
+}

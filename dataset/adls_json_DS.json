@@ -1,0 +1,28 @@
+{
+	"name": "adls_json_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage_LS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"city": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "weather_data.json",
+				"folderPath": {
+					"value": "@concat(\n    'raw/',\n    dataset().city,\n    '/',\n    formatDateTime(utcnow(), 'yyyy/MM/dd')\n)",
+					"type": "Expression"
+				},
+				"fileSystem": "weather"
+			}
+		},
+		"schema": {}
+	}
+}
