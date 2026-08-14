@@ -1,0 +1,15 @@
+{
+	"name": "devadfweather",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6c30532b-fae2-491e-bcd1-66877315f341",
+		"tenantId": "8be04ed0-2f5c-4386-8e80-324b27f41ffa"
+	}
+}
