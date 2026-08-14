@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://api.open-meteo.com/v1/forecast?latitude=18.6429&longitude=76.216&hourly=temperature_2m&timezone=Europe%2FBerlin&past_days=3",
+			"url": "https://api.open-meteo.com",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
