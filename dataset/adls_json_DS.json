@@ -15,9 +15,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "weather_data.json",
+				"fileName": {
+					"value": "@concat('weather_data_',formatDateTime(utcNow(), 'yyyy_MM_dd'),'.json')",
+					"type": "Expression"
+				},
 				"folderPath": {
-					"value": "@concat(\n    'raw/',\n    dataset().city,\n    '/',\n    formatDateTime(utcnow(), 'yyyy/MM/dd')\n)",
+					"value": "@concat('raw/',dataset().city)",
 					"type": "Expression"
 				},
 				"fileSystem": "weather"
