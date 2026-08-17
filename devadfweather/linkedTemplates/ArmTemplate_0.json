@@ -323,7 +323,7 @@
 									},
 									"userProperties": [],
 									"typeProperties": {
-										"notebookPath": "/Repos/gitrepo/weather-meadallion/notebooks/01_bronze_ingest",
+										"notebookPath": "/Shared/weather-meadallion/notebooks/01_bronze_ingest",
 										"baseParameters": {
 											"cityName": {
 												"value": "@item().city",
@@ -331,6 +331,14 @@
 											},
 											"fileName": {
 												"value": "@concat('weather_data_',formatDateTime(utcNow(), 'yyyy_MM_dd'),'.json')",
+												"type": "Expression"
+											},
+											"raw_path": {
+												"value": "@pipeline().parameters.raw_path",
+												"type": "Expression"
+											},
+											"bronze_table": {
+												"value": "@pipeline().parameters.bronze_table",
 												"type": "Expression"
 											}
 										}
@@ -363,7 +371,17 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"notebookPath": "/Repos/gitrepo/weather-meadallion/notebooks/02_silver_transform"
+							"notebookPath": "/Shared/weather-meadallion/notebooks/02_silver_transform",
+							"baseParameters": {
+								"raw_path": {
+									"value": "@pipeline().parameters.raw_path",
+									"type": "Expression"
+								},
+								"silver_table": {
+									"value": "@pipeline().parameters.silver_table",
+									"type": "Expression"
+								}
+							}
 						},
 						"linkedServiceName": {
 							"referenceName": "AzureDatabricks_LS",
@@ -390,7 +408,17 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"notebookPath": "/Repos/gitrepo/weather-meadallion/notebooks/03_gold_aggregate"
+							"notebookPath": "/Shared/weather-meadallion/notebooks/03_gold_aggregate",
+							"baseParameters": {
+								"raw_path": {
+									"value": "@pipeline().parameters.raw_path",
+									"type": "Expression"
+								},
+								"gold_table": {
+									"value": "@pipeline().parameters.gold_table",
+									"type": "Expression"
+								}
+							}
 						},
 						"linkedServiceName": {
 							"referenceName": "AzureDatabricks_LS",
@@ -400,6 +428,20 @@
 				],
 				"policy": {
 					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"raw_path": {
+						"type": "string"
+					},
+					"bronze_table": {
+						"type": "string"
+					},
+					"silver_table": {
+						"type": "string"
+					},
+					"gold_table": {
+						"type": "string"
+					}
 				},
 				"annotations": []
 			},
