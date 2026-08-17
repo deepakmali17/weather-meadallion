@@ -1,5 +1,5 @@
 {
-	"name": "ingest_raw_weather_data",
+	"name": "ingest_tranform_raw_weather_data",
 	"properties": {
 		"activities": [
 			{
