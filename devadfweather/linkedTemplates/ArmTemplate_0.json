@@ -7,10 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "devadfweather"
 		},
-		"AzureDataLakeStorage_LS_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage_LS'"
-		},
 		"AzureDataLakeStorage_LS_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://devstorageweather.dfs.core.windows.net/"
@@ -36,11 +32,7 @@
 				"annotations": [],
 				"type": "AzureBlobFS",
 				"typeProperties": {
-					"url": "[parameters('AzureDataLakeStorage_LS_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('AzureDataLakeStorage_LS_accountKey')]"
-					}
+					"url": "[parameters('AzureDataLakeStorage_LS_properties_typeProperties_url')]"
 				}
 			},
 			"dependsOn": []

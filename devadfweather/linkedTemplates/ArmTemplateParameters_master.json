@@ -5,9 +5,6 @@
 		"factoryName": {
 			"value": "devadfweather"
 		},
-		"AzureDataLakeStorage_LS_accountKey": {
-			"value": ""
-		},
 		"AzureDataLakeStorage_LS_properties_typeProperties_url": {
 			"value": "https://devstorageweather.dfs.core.windows.net/"
 		},
