@@ -1,0 +1,15 @@
+{
+  "environment": "prod",
+  "resourceGroup": "rg_weather_prod",
+  "adfName": "prodadfweather",
+  "storageAccount": "prodstorageweather",
+  "filesystem": "weather",
+  "rawPath": "abfss://weather@prodstorageweather.dfs.core.windows.net",
+  "databricksHost": "https://adb-7405619801828539.19.azuredatabricks.net",
+  "databricksWorkspaceResourceId": "/subscriptions/e044bcf8-4b50-4e59-aaf3-052ddafbc4ca/resourceGroups/rg_weather_prod/providers/Microsoft.Databricks/workspaces/proddatabricksweather",
+  "databricksClusterId": "0817-180327-tyo5cb6q",
+  "catalog": "proddatabricksweather",
+  "bronzeTable": "proddatabricksweather.bronze.bronze_table",
+  "silverTable": "proddatabricksweather.silver.weather_hourly",
+  "goldTable": "proddatabricksweather.gold.weather_daily_summary"
+}

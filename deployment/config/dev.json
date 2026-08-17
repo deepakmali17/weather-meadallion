@@ -1,0 +1,15 @@
+{
+  "environment": "dev",
+  "resourceGroup": "rg_weather_dev",
+  "adfName": "devadfweather",
+  "storageAccount": "devstorageweather",
+  "filesystem": "weather",
+  "rawPath": "abfss://weather@devstorageweather.dfs.core.windows.net",
+  "databricksHost": "https://adb-7405619883263325.5.azuredatabricks.net",
+  "databricksWorkspaceResourceId": "/subscriptions/e044bcf8-4b50-4e59-aaf3-052ddafbc4ca/resourceGroups/rg_weather_dev/providers/Microsoft.Databricks/workspaces/devdatabricksweather",
+  "databricksClusterId": "0814-193527-r36dmen6",
+  "catalog": "devdatabricksweather",
+  "bronzeTable": "devdatabricksweather.bronze.bronze_table",
+  "silverTable": "devdatabricksweather.silver.weather_hourly",
+  "goldTable": "devdatabricksweather.gold.weather_daily_summary"
+}
