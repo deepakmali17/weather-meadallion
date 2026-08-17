@@ -11,5 +11,6 @@
   "catalog": "devdatabricksweather",
   "bronzeTable": "devdatabricksweather.bronze.bronze_table",
   "silverTable": "devdatabricksweather.silver.weather_hourly",
-  "goldTable": "devdatabricksweather.gold.weather_daily_summary"
+  "goldTable": "devdatabricksweather.gold.weather_daily_summary",
+  "storagepath":"https://devstorageweather.dfs.core.windows.net/"
 }

@@ -11,5 +11,6 @@
   "catalog": "proddatabricksweather",
   "bronzeTable": "proddatabricksweather.bronze.bronze_table",
   "silverTable": "proddatabricksweather.silver.weather_hourly",
-  "goldTable": "proddatabricksweather.gold.weather_daily_summary"
+  "goldTable": "proddatabricksweather.gold.weather_daily_summary",
+  "storagepath":"https://prodstorageweather.dfs.core.windows.net/"
 }
