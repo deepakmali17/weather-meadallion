@@ -3,7 +3,18 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage_LS",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"storagepath": {
+					"value": "@dataset().storagepath",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"storagepath": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "Json",
