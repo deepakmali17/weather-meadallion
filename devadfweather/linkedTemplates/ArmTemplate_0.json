@@ -185,7 +185,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ingest_raw_weather_data')]",
+			"name": "[concat(parameters('factoryName'), '/ingest_tranform_raw_weather_data')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -302,12 +302,49 @@
 											}
 										}
 									]
+								},
+								{
+									"name": "Notebook1",
+									"type": "DatabricksNotebook",
+									"dependsOn": [
+										{
+											"activity": "Copy data1",
+											"dependencyConditions": [
+												"Succeeded"
+											]
+										}
+									],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"notebookPath": "/Repos/gitrepo/weather-meadallion/notebooks/01_bronze_ingest",
+										"baseParameters": {
+											"cityName": {
+												"value": "@item().city",
+												"type": "Expression"
+											},
+											"fileName": {
+												"value": "@concat('weather_data_',formatDateTime(utcNow(), 'yyyy_MM_dd'),'.json')",
+												"type": "Expression"
+											}
+										}
+									},
+									"linkedServiceName": {
+										"referenceName": "AzureDatabricks_LS",
+										"type": "LinkedServiceReference"
+									}
 								}
 							]
 						}
 					},
 					{
-						"name": "Notebook1",
+						"name": "silver_layer",
 						"type": "DatabricksNotebook",
 						"dependsOn": [
 							{
@@ -326,7 +363,34 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"notebookPath": "/Repos/gitrepo/weather-meadallion/notebooks/01_bronze_ingest"
+							"notebookPath": "/Repos/gitrepo/weather-meadallion/notebooks/02_silver_transform"
+						},
+						"linkedServiceName": {
+							"referenceName": "AzureDatabricks_LS",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "gold_summary",
+						"type": "DatabricksNotebook",
+						"dependsOn": [
+							{
+								"activity": "silver_layer",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Repos/gitrepo/weather-meadallion/notebooks/03_gold_aggregate"
 						},
 						"linkedServiceName": {
 							"referenceName": "AzureDatabricks_LS",
