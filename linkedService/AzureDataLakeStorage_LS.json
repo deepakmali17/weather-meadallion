@@ -1,10 +1,15 @@
 {
 	"name": "AzureDataLakeStorage_LS",
 	"properties": {
+		"parameters": {
+			"storagepath": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
-			"url": "https://devstorageweather.dfs.core.windows.net/"
+			"url": "@{linkedService().storagepath}"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/linkedservices"
