@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "devadfweather"
+		},
+		"AzureDataLakeStorage_LS_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage_LS_properties_typeProperties_url": {
+			"value": "https://devstorageweather.dfs.core.windows.net/"
+		},
+		"AzureDatabricks_LS_properties_typeProperties_existingClusterId": {
+			"value": "0814-193527-r36dmen6"
+		},
+		"HttpServer_LS_properties_typeProperties_url": {
+			"value": "https://api.open-meteo.com"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
